@@ -1,0 +1,10 @@
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Server
+
+    User->>Browser: Types a note in the text field
+    User->>Browser: Clicks "Save" button
+    Browser->>Server: Sends HTTP POST request with the note data
+    Server->>Browser: Responds with status code 201 (Created)
+    Browser->>User: Updates UI to display the new note

@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Server
+
+    User->>Browser: Types a note in the input field
+    User->>Browser: Clicks "Save" button
+    Browser->>Server: Sends HTTP POST request with note data
+    Server->>Browser: Responds with status 201 (Created)
+    Browser->>User: Updates UI by adding the new note (without full page reload)
+    Browser->>Server: Sends GET request to fetch updated notes list
+    Server->>Browser: Responds with the latest notes data
+    Browser->>User: Renders all notes, including the new one
